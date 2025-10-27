@@ -1,0 +1,39 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_30-3ef20731406b466c95654d2ef8324fdb8bbe3729",
+  "solcVersion": "0.8.30",
+  "solcLongVersion": "0.8.30+commit.73712a01",
+  "userSourceNameMap": {
+    "contracts/Certi.sol": "project/contracts/Certi.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "prague",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/Certi.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.30;\n\ncontract Cert {\n    address admin;\n    \n\n    constructor() {\n        admin = msg.sender;\n    }\n\n    modifier onlyAdmin() {\n        require(msg.sender == admin, \"Access Denied\");\n        _;\n    }\n\n    struct Certificate {\n        string name;\n        string course;\n        string grade;\n        string date;\n    }\n\n    mapping(uint256 => Certificate) public Certificates;\n\n    function issue(\n        uint256 _id,\n        string memory _name,\n        string memory _course,\n        string memory _grade,\n        string memory _date\n    ) public onlyAdmin {\n        Certificates[_id] = Certificate(_name, _course, _grade, _date);\n        \n    }\n}"
+      }
+    }
+  }
+}
