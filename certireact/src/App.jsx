@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { createWalletClient, custom,createPublicClient } from 'viem'
+import { createWalletClient, custom } from 'viem'
 import { writeContract, readContract } from 'viem/actions'
 import { hardhat, hoodi } from 'viem/chains'
 import cert from './assets/cert.json'
