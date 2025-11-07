@@ -19,3 +19,5 @@ npx hardhat compile
 ```
 ## Hardhat Deploy
 ```
+npx hardhat ignition deploy ignition/modules/Cert.ts --network localhost
+```
