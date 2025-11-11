@@ -22,6 +22,7 @@ router.post('/issueCertificate',async(req,res)=>{
 
     await waitForTransactionReceipt(client,{hash})
     console.log(hash);
+    res.status(201).json(hash)
     
     
 })

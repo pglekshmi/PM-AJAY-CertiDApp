@@ -1,10 +1,12 @@
 import {createClient,http} from 'viem'
-import {hardhat} from 'viem/chains'
+import {hardhat,hoodi} from 'viem/chains'
 import {privateKeyToAccount} from 'viem/accounts'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const client = createClient({
-    chain:hardhat,
-    account:privateKeyToAccount('0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80'),
+    chain:hoodi,
+    account:privateKeyToAccount(process.env.PRIVATE_KEY),
     transport:http()
 })
 
